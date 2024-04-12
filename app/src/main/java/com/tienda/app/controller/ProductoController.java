@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 // http://localhost:8081/tienda-app
 @RequestMapping("tienda-app")
-@CrossOrigin(value = "http://localhost:4200")
+//@CrossOrigin(value = "http://localhost:4200")
 public class ProductoController {
 
     private static final Logger logger =
@@ -24,9 +24,16 @@ public class ProductoController {
     @GetMapping("/productos")
     public List<Producto> obtenerProductos() {
         List<Producto> productos = this.productoService.listarProducto();
-        logger.info("Productos cargados correctamente");
-        productos.forEach((producto -> logger.info(producto.toString())));
+        logger.info("Productos cargados correctamente: {}", productos); // Agrega esta línea para imprimir la lista de productos
         return productos;
+    }
+
+    // Agregar un nuevo producto
+    @PostMapping("/productos")
+    public Producto agregarProducto(@RequestBody Producto producto) {
+        Producto nuevoProducto = this.productoService.guardarProducto(producto);
+        logger.info("Producto agregado correctamente: " + nuevoProducto.toString());
+        return nuevoProducto;
     }
 
     // Obtener un producto por su ID
@@ -41,13 +48,7 @@ public class ProductoController {
         return producto;
     }
 
-    // Agregar un nuevo producto
-    @PostMapping("/productos")
-    public Producto agregarProducto(@RequestBody Producto producto) {
-        Producto nuevoProducto = this.productoService.guardarProducto(producto);
-        logger.info("Producto agregado correctamente: " + nuevoProducto.toString());
-        return nuevoProducto;
-    }
+
 
     // Actualizar un producto existente
     @PutMapping("/productos/{id}")
@@ -65,7 +66,7 @@ public class ProductoController {
     }
 
     // Eliminar un producto por su ID
-    @DeleteMapping("/productos/{id}")
+    @DeleteMapping("/Productos/Delete/{id}")
     public String eliminarProducto(@PathVariable Integer id) {
         this.productoService.eliminarProductoPorId(id);
         logger.info("Producto con ID " + id + " eliminado correctamente");
