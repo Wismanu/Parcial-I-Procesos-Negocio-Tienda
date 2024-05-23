@@ -26,21 +26,15 @@ public class Producto {
     private String descripcion;
 
     @Column(length = 250)
-    @NotNull
-    @NotBlank
     private String marca;
 
     private Integer meses_garantia;
 
-    @NotNull
-    @NotBlank
     private Double  precio;
 
     private String imagenUrl;
 
     @ManyToOne
-    @NotNull
-    @NotBlank
     @JoinColumn(referencedColumnName = "categoria_id")
     private Categoria categoria;
 

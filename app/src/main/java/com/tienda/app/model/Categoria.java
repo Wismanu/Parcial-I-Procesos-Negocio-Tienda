@@ -21,14 +21,10 @@ public class Categoria {
     @Column(name = "categoria_id")
     private Integer categoriaId;
 
-    @Column(length = 100)
-    @NotNull
-    @NotBlank
+
     private String nombre;
 
-    @Column(length = 250)
-    @NotNull
-    @NotBlank
+
     private String descripcion;
 
     private LocalDateTime fechaCreacion;
