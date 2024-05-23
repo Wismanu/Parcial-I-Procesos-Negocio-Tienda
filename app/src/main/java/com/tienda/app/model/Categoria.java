@@ -1,13 +1,10 @@
 package com.tienda.app.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-import java.util.List;
 
 @Entity
 @Data
@@ -21,7 +18,22 @@ public class Categoria {
     @Column(name = "categoria_id")
     private Integer categoriaId;
 
+    @Column(length = 100)
+    @NotNull
+    @NotBlank
     private String nombre;
+
+    @Column(length = 250)
+    @NotNull
+    @NotBlank
+    private String descripcion;
+
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    protected void onCreate() {
+        fechaCreacion = LocalDateTime.now();
+    }
 
 //    @OneToMany(mappedBy = "categoria")
 //    private List<Producto> productos;
