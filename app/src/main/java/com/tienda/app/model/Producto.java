@@ -1,10 +1,9 @@
 package com.tienda.app.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 
 @Entity
@@ -18,9 +17,30 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length = 100)
+    @NotNull
+    @NotBlank
     private String nombre;
 
+    @Column(length = 250)
+    private String descripcion;
+
+    @Column(length = 250)
+    @NotNull
+    @NotBlank
+    private String marca;
+
+    private Integer meses_garantia;
+
+    @NotNull
+    @NotBlank
+    private Double  precio;
+
+    private String imagenUrl;
+
     @ManyToOne
+    @NotNull
+    @NotBlank
     @JoinColumn(referencedColumnName = "categoria_id")
     private Categoria categoria;
 
