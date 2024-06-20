@@ -13,4 +13,6 @@ public class LoginDTO {
     private String loginUsername;
     private String loginPassword;
 
+    private Long loginIdRol;
+
 }

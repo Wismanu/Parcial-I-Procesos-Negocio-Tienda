@@ -21,7 +21,7 @@ public class Userr {
     @JsonIgnore
     private Login login;
 
-    private Integer usrIdRol;
+
     private String usrName;
     private String usrDni;
     private String usrPhone;

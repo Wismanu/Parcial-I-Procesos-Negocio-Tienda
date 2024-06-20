@@ -39,7 +39,6 @@ public class UserrController {
                     .usrName(userr.getUsrName())
                     .usrPhone(userr.getUsrPhone())
                     .usrDni(userr.getUsrDni())
-                    .usrIdRol(userr.getUsrIdRol())
                     .build();
             return ResponseEntity.ok(userrDTO);
         }
@@ -57,7 +56,6 @@ public class UserrController {
                         .usrName(userr.getUsrName())
                         .usrPhone(userr.getUsrPhone())
                         .usrDni(userr.getUsrDni())
-                        .usrIdRol(userr.getUsrIdRol())
                         .build())
                 .toList();
 
@@ -74,7 +72,6 @@ public class UserrController {
             return ResponseEntity.badRequest().build();
         }
         userrService.save(Userr.builder()
-                .usrIdRol(userrDTO.getUsrIdRol())
                 .usrName(userrDTO.getUsrName())
                 .usrDni(userrDTO.getUsrDni())
                 .usrPhone(userrDTO.getUsrPhone())
