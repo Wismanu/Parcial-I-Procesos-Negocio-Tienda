@@ -1,11 +1,11 @@
-package gm.inventarios.service;
+package gm.inventarios.persistence;
 
 import gm.inventarios.entities.Userr;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IUserrService {
+public interface IUserrDAO {
 
     List<Userr> findAll();
 
