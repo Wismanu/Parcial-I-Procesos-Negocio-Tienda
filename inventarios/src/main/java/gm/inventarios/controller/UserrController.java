@@ -20,8 +20,12 @@ import java.util.Optional;
 @RequestMapping("/api/userr")
 public class UserrController {
 
+
+
     @Autowired
     private IUserrService userrService;
+
+
 
     @GetMapping("/find/{usrCode}")
     public ResponseEntity<?> findById(@PathVariable Long usrCode) {
@@ -42,6 +46,8 @@ public class UserrController {
         return ResponseEntity.notFound().build();
     }
 
+
+
     @GetMapping("/findAll")
     public ResponseEntity<?> findAll() {
         List<UserrDTO> userrDTOList = userrService.findAll()
@@ -60,6 +66,7 @@ public class UserrController {
     }
 
 
+
     @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody UserrDTO userrDTO) throws URISyntaxException {
 
@@ -75,6 +82,8 @@ public class UserrController {
         return ResponseEntity.created(new URI("/api/userr/save")).build();
     }
 
+
+
     @PutMapping("/update/{usrCode}")
     public ResponseEntity<?> update(@PathVariable Long usrCode,@RequestBody UserrDTO userrDTO) {
 
@@ -89,6 +98,8 @@ public class UserrController {
         return ResponseEntity.notFound().build();
     }
 
+
+
     @DeleteMapping("/delete/{usrCode}")
     public ResponseEntity<?> deleteById(@PathVariable Long usrCode) {
 
@@ -98,4 +109,7 @@ public class UserrController {
         }
         return ResponseEntity.badRequest().build();
     }
+
+
+
 }

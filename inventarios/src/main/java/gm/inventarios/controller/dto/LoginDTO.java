@@ -1,19 +1,16 @@
 package gm.inventarios.controller.dto;
 
-
 import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserrDTO {
+public class LoginDTO {
 
     private Long usrCode;
 
-    private Integer usrIdRol;
-    private String usrName;
-    private String usrDni;
-    private String usrPhone;
+    private String loginUsername;
+    private String loginPassword;
 
 }
